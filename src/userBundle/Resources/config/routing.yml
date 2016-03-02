@@ -1,0 +1,9 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: userBundle:Default:index }
+user_index:
+    path:     /user/index
+    defaults: { _controller: userBundle:User:index }
+user_articles:
+    path:     /user/articles/{page}
+    defaults: { _controller: userBundle:User:articles,page:1 }
