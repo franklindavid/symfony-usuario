@@ -11,11 +11,12 @@ class UserController extends Controller
     {
         $em=$this->getDoctrine()->getManager();
 		$users=$em->getRepository('userBundle:user')->findAll();
-		$res='Lista de usuarios: <br/>';
-		foreach($users as $user){
-			$res .='usuario: '.$user->getusername(). ' - email: '. $user->getemail().'<br/>';
-		}
-		return new response($res);
+//		$res='Lista de usuarios: <br/>';
+//		foreach($users as $user){
+//			$res .='usuario: '.$user->getusername(). ' - email: '. $user->getemail().'<br/>';
+//		}
+//		return new response($res);
+		return $this->render('userBundle:user:index.html.twig',array('users'=>$users));
 	}
 	public function addAction()
     {
