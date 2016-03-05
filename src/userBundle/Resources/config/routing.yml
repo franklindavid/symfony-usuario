@@ -8,11 +8,11 @@ user_add:
     path:     /user/add
     defaults: { _controller: userBundle:User:add }
 user_edit:
-    path:     /user/edit
+    path:     /user/edit/{id}
     defaults: { _controller: userBundle:User:edit }
 user_view:
-    path:     /user/view
+    path:     /user/view/{id}
     defaults: { _controller: userBundle:User:view }
 user_delete:
-    path:     /user/delete
+    path:     /user/delete/{id}
     defaults: { _controller: userBundle:User:delete }

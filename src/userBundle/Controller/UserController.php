@@ -9,8 +9,14 @@ class UserController extends Controller
 {
     public function indexAction()
     {
-        return new response('Bienvenido a mi modulo de usuario');
-    }
+        $em=$this->getDoctrine()->getManager();
+		$users=$em->getRepository('userBundle:user')->findAll();
+		$res='Lista de usuarios: <br/>';
+		foreach($users as $user){
+			$res .='usuario: '.$user->getusername(). ' - email: '. $user->getemail().'<br/>';
+		}
+		return new response($res);
+	}
 	public function addAction()
     {
         return new response('Bienvenido a mi modulo de agregar usuario');
@@ -19,9 +25,13 @@ class UserController extends Controller
     {
         return new response('Bienvenido a mi modulo de editar usuario');
     }
-	public function viewAction()
+	public function viewAction($id)
     {
-        return new response('Bienvenido a mi modulo de ver usuario');
+       $repository=$this->getDoctrine()->getRepository('userBundle:user');
+		$user=$repository->find($id);
+//		$user=$repository->findOneById($id);
+//		$user=$repository->findOneByUsername($id);
+		return new response('usuario: '.$user->getusername().' con email: '.$user->getemail());
     }
 	public function deleteAction()
     {
