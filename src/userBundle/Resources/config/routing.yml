@@ -4,6 +4,15 @@ user_homepage:
 user_index:
     path:     /user/index
     defaults: { _controller: userBundle:User:index }
-user_articles:
-    path:     /user/articles/{page}
-    defaults: { _controller: userBundle:User:articles,page:1 }
+user_add:
+    path:     /user/add
+    defaults: { _controller: userBundle:User:add }
+user_edit:
+    path:     /user/edit
+    defaults: { _controller: userBundle:User:edit }
+user_view:
+    path:     /user/view
+    defaults: { _controller: userBundle:User:view }
+user_delete:
+    path:     /user/delete
+    defaults: { _controller: userBundle:User:delete }
